@@ -1,0 +1,20 @@
+autoscaling:
+  enabled: false
+replicaCount: 1
+podAnnotations:
+  notifications.argoproj.io/subscribe.on-sync-succeeded.slack: my-channel1
+imagePullSecrets:
+  - name: regcred
+image:
+  repository: fancyit/app-a
+  tag: v1
+  pullPolicy: Always
+service:
+  port: 8080
+  type: ClusterIP
+containers:
+  env:
+    - name: SERVER_PORT
+      value: 8080
+    - name: SERVICE_B_URL
+      value: "http://someurl"
