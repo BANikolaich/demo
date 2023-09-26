@@ -10,7 +10,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      {{- include "app-b.labels" . | nindent 6 }}
+      app: {{ .Chart.Name }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
