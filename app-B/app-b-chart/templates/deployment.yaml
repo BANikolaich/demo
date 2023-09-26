@@ -3,14 +3,14 @@ kind: Deployment
 metadata:
   name: {{ .Chart.Name }}
   labels:
-    app: {{ .Chart.Name }}
+    {{- include "app-b.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "app-a.labels" . | nindent 6 }}
+      {{- include "app-b.labels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
