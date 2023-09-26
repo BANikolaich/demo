@@ -15,6 +15,6 @@ service:
 containers:
   env:
     - name: SERVER_PORT
-      value: 8080
+      value: "8080"
     - name: SERVICE_B_URL
       value: "http://someurl"

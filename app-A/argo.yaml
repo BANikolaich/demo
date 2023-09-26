@@ -2,18 +2,18 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: app-a
-  namespace: app-a
+  namespace: argocd
 spec:
   project: istio-demo
   source:
     repoURL: git@github.com:BANikolaich/demo.git
     targetRevision: main
-    path: app-a-chart
+    path: app-A/app-a-chart
     helm:
       valueFiles:
         - values.yaml
   destination:
-    server: https://kubernetes.default.svc.cluster.local
+    server: https://kubernetes.svc.cluster.local
     namespace: app-a
 
   syncPolicy:
