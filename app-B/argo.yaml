@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-b
+  namespace: argocd
+spec:
+  project: istio-demo
+  source:
+    repoURL: git@github.com:BANikolaich/demo.git
+    targetRevision: main
+    path: app-B/app-b-chart
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.svc.cluster.local
+    namespace: app-b
+
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
