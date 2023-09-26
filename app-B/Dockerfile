@@ -1,4 +1,4 @@
-FROM node18-alpine
+FROM node:18-alpine
 LABEL authors="fancy"
 RUN mkdir -p /opt/app
 WORKDIR /opt/app
