@@ -18,3 +18,5 @@ containers:
       value: "8080"
     - name: SERVICE_B_URL
       value: "http://app-b-svc.svc.cluster.local:8080"
+ingress:
+  host: "app-a.anban.fun"
