@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: {{ .Chart.Name }}-se
+spec:
+  hosts:
+  - {{ .Values.external_service.url }}
+  ports:
+  - number: {{ .Values.external_service.port }}
+    name: http
+    protocol: HTTP
+  #resolution:
+  location: MESH_INTERNAL
