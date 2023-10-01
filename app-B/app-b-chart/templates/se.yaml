@@ -9,5 +9,5 @@ spec:
   - number: {{ .Values.external_service.port }}
     name: http
     protocol: HTTP
-  resolution: app-a-svc.app-a.svc.cluster.local
+  resolution: "app-a-svc.app-a.svc.cluster.local"
   location: MESH_INTERNAL
