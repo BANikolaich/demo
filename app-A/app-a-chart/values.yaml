@@ -20,3 +20,6 @@ containers:
       value: "http://app-b-svc.svc.cluster.local:8080"
 ingress:
   host: "app-a.anban.fun"
+external_service:
+  url: http://app-b-svc.svc.cluster.local
+  port: 8080
