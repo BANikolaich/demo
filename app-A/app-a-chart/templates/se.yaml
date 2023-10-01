@@ -9,5 +9,5 @@ spec:
   - number: {{ .Values.external_service.port }}
     name: http
     protocol: HTTP
-  resolution: DNS
-  location: MESH_EXTERNAL
+  #resolution:
+  location: MESH_INTERNAL
