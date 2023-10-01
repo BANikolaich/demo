@@ -5,7 +5,7 @@ const axios = require('axios');
 require('dotenv').config()
 
 app.get('/api/exampleA', (req, res) => {
-   res.end("Hi from service A")
+   res.send("Hi from service A")
 })
 app.get('/api/callB', async (req, res) => {
   let result = await axios.get(`${process.env.SERVICE_B_URL}/api/exampleB`)
