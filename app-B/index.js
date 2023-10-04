@@ -8,7 +8,7 @@ app.get('/api/exampleB', (req, res) => {
    res.send("Hi from service B")
 })
 app.get('/api/callA', async (req, res) => {
-   let result = await axios.get(`${process.env.SERVICE_A_URL}/api/exampleA`)
+   let result = await axios.get(`${process.env.SERVICE_A_URL}/api/a-service`)
        .then(r => {
           return r.data
        }).catch(e => {
@@ -16,6 +16,11 @@ app.get('/api/callA', async (req, res) => {
        })
    res.send(result)
 })
+
+app.get('/api/b-service', (req, res) => {
+    res.send("application b service response")
+})
+
 
 var server = app.listen(process.env.SERVER_PORT, () => {
    var host = server.address().address
